@@ -1,4 +1,5 @@
 import nets from 'nets'
+import MobileDetect from 'mobile-detect'
 import qs from 'qs'
 import randomString from './util/randomString'
 const CHASQUI_URL = 'https://chasqui.uport.me/api/v1/topic/'
@@ -124,7 +125,10 @@ function TopicFactory (isOnMobile, pollingInterval = 2000, chasquiUrl = CHASQUI_
 
     let url
     if (isOnMobile) {
-      url = window.location.href
+      if(new MobileDetect(window.navigator.userAgent).userAgent() === 'Chrome')
+        url = 'googlechrome:' + window.location.href.substring(window.location.protocol.length)
+      else
+        url = window.location.href
     } else {
       url = chasquiUrl + randomString(16)
     }
