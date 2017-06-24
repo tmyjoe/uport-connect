@@ -106,7 +106,7 @@
     "qs": "^6.2.1",
     "request": "^2.75.0",
     "uport": "^0.4.2",
-    "web3": "^0.18.2"
+    "web3": "github:shayanb/web3.js#develop",
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
